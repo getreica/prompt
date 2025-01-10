@@ -14,9 +14,9 @@
 - Testare 
 
 ## Google Cloud Build
-1. Collegare il repository per il deploy
-2. Setup con il tag per il deploy 
-3. Creare repository su Docker Hub 
+1. Creare repository su Docker Hub
+2. Collegare il repository per il deploy
+3. Setup con il tag per il deploy  
 4. Modificare il cloudbuild.yaml con le informazioni corrette e aggiornare
 5. Taggare per lanciare il build e il push 
 6. Testare su Runpod

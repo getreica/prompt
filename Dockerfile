@@ -64,11 +64,10 @@ WORKDIR /
 #
 # Download weights - Da sostituire con i modelli che si vogliono scaricare
 #
-# RUN mkdir -p comfyui/models/unet comfyui/models/clip comfyui/models/vae
-# RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/unet/flux1-dev-Q8_0.gguf https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf
-# RUN aria2c -o comfyui/models/clip/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors https://huggingface.co/alexgenovese/clip/resolve/main/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
-# RUN aria2c -o comfyui/models/clip/t5-v1_1-xxl-encoder-f16.gguf https://huggingface.co/alexgenovese/clip/resolve/main/t5-v1_1-xxl-encoder-f16.gguf
-# RUN aria2c -o comfyui/models/vae/ae.sft https://huggingface.co/alexgenovese/vae/resolve/main/ae.sft
+RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/sft/ae.sft https://huggingface.co/alexgenovese/vae/resolve/main/ae.sft
+RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/gguf/flux1-dev-F16.gguf https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-F16.gguf
+RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/gguf/t5-v1_1-xxl-encoder-f16.gguf https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-f16.gguf
+RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/safetensors/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors https://huggingface.co/zer0int/CLIP-GmP-ViT-L-14/resolve/main/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
 
 # Start container
 CMD ["/start.sh"]
