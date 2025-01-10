@@ -1,0 +1,15 @@
+services:
+  prompt:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - HUGGINGFACE_ACCESS_TOKEN=${HUGGINGFACE_ACCESS_TOKEN}
+        - SERVE_API_LOCALLY=false
+    ports: 
+      - "8188:8188"
+      - "8000:8000"
+    volumes:
+      - /Users/alexgenovese/Desktop/runpod/output:/comfyui/output

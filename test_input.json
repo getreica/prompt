@@ -1,0 +1,194 @@
+{
+  "8": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "13": {
+    "inputs": {
+      "noise": [
+        "25",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "309",
+        0
+      ],
+      "sigmas": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "16": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "17": {
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 20,
+      "denoise": 1,
+      "model": [
+        "184",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "22": {
+    "inputs": {
+      "model": [
+        "288",
+        0
+      ],
+      "conditioning": [
+        "99",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "25": {
+    "inputs": {
+      "noise_seed": 190332229492521
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "56": {
+    "inputs": {
+      "vae_name": "ae.sft"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "99": {
+    "inputs": {
+      "clip_l": "A tall, elegant black male with short buzz hair standing confidently next to a classic vintage car, dressed in a sharp, oversized charcoal gray double-breasted suit with wide-legged trousers. Her pose is relaxed, evoking a sense of minimalistic sophistication and timeless style. The background is a muted, industrial setting, creating a contrast between the sleek vehicle and the high-fashion suit, exuding luxury and subtle power.\n",
+      "t5xxl": "A tall, elegant black male with short buzz hair standing confidently next to a classic vintage car, dressed in a sharp, oversized charcoal gray double-breasted suit with wide-legged trousers. Her pose is relaxed, evoking a sense of minimalistic sophistication and timeless style. The background is a muted, industrial setting, creating a contrast between the sleek vehicle and the high-fashion suit, exuding luxury and subtle power.\n",
+      "guidance": 3.5,
+      "clip": [
+        "291",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncodeFlux",
+    "_meta": {
+      "title": "CLIPTextEncodeFlux"
+    }
+  },
+  "125": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "184": {
+    "inputs": {
+      "max_shift": 0.5,
+      "base_shift": 0.5,
+      "width": 1024,
+      "height": 1024,
+      "model": [
+        "288",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "288": {
+    "inputs": {
+      "unet_name": "flux1-dev-Q8_0.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "291": {
+    "inputs": {
+      "clip_name1": "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+      "clip_name2": "t5-v1_1-xxl-encoder-f16.gguf",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoaderGGUF",
+    "_meta": {
+      "title": "DualCLIPLoader (GGUF)"
+    }
+  },
+  "309": {
+    "inputs": {
+      "dishonesty_factor": -0.05,
+      "start_percent": 0.1,
+      "end_percent": 0.9,
+      "sampler": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "LyingSigmaSampler",
+    "_meta": {
+      "title": "Lying Sigma Sampler"
+    }
+  },
+  "311": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
