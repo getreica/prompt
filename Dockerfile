@@ -41,8 +41,8 @@ ADD src/extra_model_paths.yaml ./
 WORKDIR /
 
 # Add scripts
-ADD src/start.sh src/restore_snapshot.sh src/rp_handler.py test_input.json ./
-RUN chmod +x /start.sh /restore_snapshot.sh
+ADD src/start.sh src/restore_snapshot.sh src/rp_handler.py src/download_models.sh test_input.json ./
+RUN chmod +x /start.sh /restore_snapshot.sh /download_models.sh
 
 # Optionally copy the snapshot file
 RUN mkdir -p /snapshots/
@@ -59,15 +59,6 @@ FROM base AS downloader
 
 ARG HUGGINGFACE_ACCESS_TOKEN
 
-# Change working directory to ComfyUI
-WORKDIR /
-#
-# Download weights - Da sostituire con i modelli che si vogliono scaricare
-#
-RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/sft/ae.sft https://huggingface.co/alexgenovese/vae/resolve/main/ae.sft
-RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/gguf/flux1-dev-F16.gguf https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-F16.gguf
-RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/gguf/t5-v1_1-xxl-encoder-f16.gguf https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-f16.gguf
-RUN aria2c --header="Authorization: Bearer $HUGGINGFACE_ACCESS_TOKEN" -o comfyui/models/safetensors/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors https://huggingface.co/zer0int/CLIP-GmP-ViT-L-14/resolve/main/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
-
-# Start container
+# Impostazione dell'entrypoint per scaricare modelli solo a runtime
+ENTRYPOINT ["/download_models.sh"]
 CMD ["/start.sh"]
