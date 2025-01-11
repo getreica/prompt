@@ -6,7 +6,7 @@ set -e
 echo "Startup..."
 
 # Cancellazione dei modelli
-if [[ $DELETE_MODELS ]]; then
+if [[ "$DELETE_MODELS" == "true" ]]; then
     echo "Eliminazione dei modelli..."
     rm -rf comfyui/models
     mkdir -p comfyui/models
@@ -17,7 +17,7 @@ fi
 #
 # Download weights - Da sostituire con i modelli che si vogliono scaricare
 #
-if [[ $DOWNLOAD_MODELS ]]; then
+if [[ "$DOWNLOAD_MODELS" == "true" ]]; then
     if [ ! -f "/all-models-downloaded.check" ]; then
         echo "Download dei modelli..."
         # Scarica i modelli
@@ -44,7 +44,7 @@ fi
     
 echo "End startup."    
 
-if [[ $KEEP_OPEN ]]; then
+if [[ "$KEEP_OPEN" == "true" ]]; then
     echo "Il container è stato avviato con l'opzione --keep-open"
 
     sleep infinity
