@@ -3,7 +3,7 @@
     "inputs": {
       "text": "The image features a sleek, vintage car with a glossy green finish, parked on a cobblestone street. The car's design is classic, with smooth curves and a polished surface that reflects the surrounding environment, including the leaves of nearby trees. The perspective is from above, highlighting the car's roof and rear window, which shows a reflection of the foliage. The setting appears to be a quaint, possibly European street, with a building wall and wooden door visible in the background. The overall atmosphere is serene and nostalgic, emphasizing the elegance and timelessness of the vehicle. The interplay of light and shadow adds depth and enhances the car's striking appearance.\n",
       "clip": [
-        "66",
+        "110",
         1
       ]
     },
@@ -111,7 +111,7 @@
         2
       ],
       "model": [
-        "66",
+        "110",
         0
       ]
     },
@@ -258,36 +258,6 @@
       "title": "VAE Decode"
     }
   },
-  "66": {
-    "inputs": {
-      "PowerLoraLoaderHeaderWidget": {
-        "type": "PowerLoraLoaderHeaderWidget"
-      },
-      "lora_1": {
-        "on": true,
-        "lora": "_FLUX/Photo_style/realism_lora_comfy_converted.safetensors",
-        "strength": 1
-      },
-      "lora_2": {
-        "on": true,
-        "lora": "_FLUX/FLUX-dev-lora-AntiBlur.safetensors",
-        "strength": 1
-      },
-      "➕ Add Lora": "",
-      "model": [
-        "108",
-        0
-      ],
-      "clip": [
-        "109",
-        0
-      ]
-    },
-    "class_type": "Power Lora Loader (rgthree)",
-    "_meta": {
-      "title": "Power Lora Loader (rgthree)"
-    }
-  },
   "68": {
     "inputs": {
       "value": 0.504,
@@ -302,7 +272,7 @@
   },
   "69": {
     "inputs": {
-      "value": "round(0.5+a*(0.72-0.5), 2)",
+      "value": "",
       "a": [
         "68",
         0
@@ -327,7 +297,7 @@
   },
   "71": {
     "inputs": {
-      "value": "round(0.38+a*(0.52-0.38), 2)",
+      "value": "",
       "a": [
         "70",
         0
@@ -372,7 +342,7 @@
         2
       ],
       "model": [
-        "66",
+        "110",
         0
       ]
     },
@@ -395,7 +365,7 @@
   },
   "75": {
     "inputs": {
-      "value": "a+c*(b-a)",
+      "value": "",
       "a": [
         "78",
         1
@@ -428,7 +398,7 @@
   },
   "77": {
     "inputs": {
-      "value": "round(0.46+a*(0.72-0.46), 2)",
+      "value": "",
       "a": [
         "76",
         0
@@ -441,7 +411,7 @@
   },
   "78": {
     "inputs": {
-      "value_1": "12+(a-0.46)*(15-12)/(0.72-0.46)",
+      "value_1": "",
       "value_2": "26+(a-0.46)*(35-26)/(0.72-0.46)",
       "a": [
         "77",
@@ -496,7 +466,7 @@
   },
   "82": {
     "inputs": {
-      "value": "max(min(a, 5), 0)",
+      "value": "",
       "a": [
         "81",
         0
@@ -571,7 +541,7 @@
   },
   "92": {
     "inputs": {
-      "value": "max(min(a, 2), 1)",
+      "value": "",
       "a": [
         "91",
         0
@@ -584,7 +554,7 @@
   },
   "93": {
     "inputs": {
-      "value_1": "a*c",
+      "value_1": "",
       "value_2": "b*c",
       "a": [
         "48",
@@ -622,7 +592,7 @@
   },
   "107": {
     "inputs": {
-      "filename_prefix": "prompt",
+      "filename_prefix": "ComfyUI",
       "images": [
         "99",
         0
@@ -651,6 +621,44 @@
     "class_type": "DualCLIPLoaderGGUF",
     "_meta": {
       "title": "DualCLIPLoader (GGUF)"
+    }
+  },
+  "110": {
+    "inputs": {
+      "lora_name": "FLUX-dev-lora-AntiBlur.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "111",
+        0
+      ],
+      "clip": [
+        "111",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "111": {
+    "inputs": {
+      "lora_name": "Aesthetic-texture-enhancer.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "108",
+        0
+      ],
+      "clip": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
     }
   }
 }
