@@ -5,7 +5,7 @@ set -e
 
 # Variables
 IMAGE_NAME="prompt"
-TAG="0.0.2"
+TAG="0.0.3"
 DOCKER_HUB_USERNAME="alexgenovese"
 
 # Ensure the script is run with the correct number of arguments
