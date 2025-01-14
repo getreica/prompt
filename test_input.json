@@ -603,18 +603,9 @@
       "title": "Save Image"
     }
   },
-  "108": {
-    "inputs": {
-      "unet_name": "flux1-dev-F16.gguf"
-    },
-    "class_type": "UnetLoaderGGUF",
-    "_meta": {
-      "title": "Unet Loader (GGUF)"
-    }
-  },
   "109": {
     "inputs": {
-      "clip_name1": "t5-v1_1-xxl-encoder-f16.gguf",
+      "clip_name1": "t5xxl_fp8_e4m3fn_scaled.safetensors",
       "clip_name2": "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
       "type": "flux"
     },
@@ -648,7 +639,7 @@
       "strength_model": 1,
       "strength_clip": 1,
       "model": [
-        "108",
+        "112",
         0
       ],
       "clip": [
@@ -659,6 +650,16 @@
     "class_type": "LoraLoader",
     "_meta": {
       "title": "Load LoRA"
+    }
+  },
+  "112": {
+    "inputs": {
+      "unet_name": "flux_dev_fp8_scaled_diffusion_model.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
     }
   }
 }

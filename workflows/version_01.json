@@ -3,7 +3,7 @@
     "inputs": {
       "text": "The image features a sleek, vintage car with a glossy green finish, parked on a cobblestone street. The car's design is classic, with smooth curves and a polished surface that reflects the surrounding environment, including the leaves of nearby trees. The perspective is from above, highlighting the car's roof and rear window, which shows a reflection of the foliage. The setting appears to be a quaint, possibly European street, with a building wall and wooden door visible in the background. The overall atmosphere is serene and nostalgic, emphasizing the elegance and timelessness of the vehicle. The interplay of light and shadow adds depth and enhances the car's striking appearance.\n",
       "clip": [
-        "110",
+        "111",
         1
       ]
     },
@@ -111,7 +111,7 @@
         2
       ],
       "model": [
-        "110",
+        "111",
         0
       ]
     },
@@ -342,7 +342,7 @@
         2
       ],
       "model": [
-        "110",
+        "111",
         0
       ]
     },
@@ -603,18 +603,9 @@
       "title": "Save Image"
     }
   },
-  "108": {
-    "inputs": {
-      "unet_name": "flux1-dev-F16.gguf"
-    },
-    "class_type": "UnetLoaderGGUF",
-    "_meta": {
-      "title": "Unet Loader (GGUF)"
-    }
-  },
   "109": {
     "inputs": {
-      "clip_name1": "t5-v1_1-xxl-encoder-f16.gguf",
+      "clip_name1": "t5xxl_fp8_e4m3fn_scaled.safetensors",
       "clip_name2": "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
       "type": "flux"
     },
@@ -625,30 +616,21 @@
   },
   "110": {
     "inputs": {
-      "lora_name": "FLUX-dev-lora-AntiBlur.safetensors",
-      "strength_model": 1,
-      "strength_clip": 1,
-      "model": [
-        "111",
-        0
-      ],
-      "clip": [
-        "111",
-        1
-      ]
+      "unet_name": "flux_dev_fp8_scaled_diffusion_model.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
     },
-    "class_type": "LoraLoader",
+    "class_type": "UNETLoader",
     "_meta": {
-      "title": "Load LoRA"
+      "title": "Load Diffusion Model"
     }
   },
   "111": {
     "inputs": {
-      "lora_name": "Aesthetic-texture-enhancer.safetensors",
+      "lora_name": "FLUX-dev-lora-AntiBlur.safetensors",
       "strength_model": 1,
       "strength_clip": 1,
       "model": [
-        "108",
+        "110",
         0
       ],
       "clip": [
