@@ -3,8 +3,10 @@ name: Build and Push Docker Image to Docker Hub
 on: 
   workflow_dispatch:
     inputs:
-      parameter:
-        description: My Parameter
+      tags:
+        description: 'Enter the docker tag'
+        required: true
+        type: string
   push: 
     tags:        
       - '*'
@@ -48,6 +50,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ vars.DOCKERHUB_REPO }}/${{ vars.DOCKERHUB_IMG }}:${{ env.RELEASE_VERSION }}
+          tags: ${{ vars.DOCKERHUB_REPO }}/${{ vars.DOCKERHUB_IMG }}:${{ inputs.tags }}
           build-args: |
             HUGGINGFACE_ACCESS_TOKEN=${{ secrets.HUGGINGFACE_ACCESS_TOKEN }}
