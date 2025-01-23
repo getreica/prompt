@@ -2,6 +2,9 @@ name: Build and Push Docker Image to Docker Hub
 
 on: 
   workflow_dispatch:
+    inputs:
+      parameter:
+        description: My Parameter
   push: 
     tags:        
       - '*'
