@@ -5,11 +5,11 @@ steps:
   secretEnv: ['USERNAME', 'PASSWORD']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', 'docker build -t $$USERNAME/prompt:0.0.1 .']
-  secretEnv: ['USERNAME']
+  args: ['-c', 'docker build --build-arg HUGGINGFACE_ACCESS_TOKEN=$$HUGGINGFACE_ACCESS_TOKEN -t $$USERNAME/$TRIGGER_NAME:$TAG_NAME .']
+  secretEnv: ['USERNAME','HUGGINGFACE_ACCESS_TOKEN']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', 'docker push $$USERNAME/prompt:0.0.1']
+  args: ['-c', 'docker push $$USERNAME/$TRIGGER_NAME:$TAG_NAME']
   secretEnv: ['USERNAME']
 availableSecrets:
   secretManager:
@@ -17,5 +17,7 @@ availableSecrets:
     env: 'PASSWORD'
   - versionName: projects/48574477087/secrets/docker-username/versions/1
     env: 'USERNAME'
+  - versionName: projects/48574477087/secrets/huggingface-access-token/versions/1
+    env: 'HUGGINGFACE_ACCESS_TOKEN'
 options:
   logging: CLOUD_LOGGING_ONLY
