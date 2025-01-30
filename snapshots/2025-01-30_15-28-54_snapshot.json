@@ -3,7 +3,7 @@
     "git_custom_nodes": {
         "https://github.com/ltdrdata/ComfyUI-Manager": {
             "hash": "3d80ed95cacd81b607a8703ac02cbaf9cbf3eb7f",
-            "disabled": false
+            "disabled": true
         },
         "https://github.com/shadowcz007/comfyui-mixlab-nodes": {
             "hash": "d835aff0cb3e4def03e26e70a2a03368cae01693",
