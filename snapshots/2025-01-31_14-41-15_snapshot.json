@@ -1,10 +1,6 @@
 {
-    "comfyui": "6ff2e4d55002cca7ed836dfb39fdf0c82a7f615a",
+    "comfyui": "541dc08547338e3476c4b11c2329df6da3f499e4",
     "git_custom_nodes": {
-        "https://github.com/ltdrdata/ComfyUI-Manager": {
-            "hash": "3d80ed95cacd81b607a8703ac02cbaf9cbf3eb7f",
-            "disabled": true
-        },
         "https://github.com/shadowcz007/comfyui-mixlab-nodes": {
             "hash": "d835aff0cb3e4def03e26e70a2a03368cae01693",
             "disabled": false
@@ -14,7 +10,7 @@
             "disabled": false
         },
         "https://github.com/yolain/ComfyUI-Easy-Use": {
-            "hash": "3515268de557bb165cbfa7ee830710a45fabe8ef",
+            "hash": "2b160cc789c5f721797b5e32308063309b0f3ecb",
             "disabled": false
         },
         "https://github.com/Fannovel16/comfyui_controlnet_aux": {

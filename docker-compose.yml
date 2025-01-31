@@ -7,9 +7,10 @@ services:
       dockerfile: Dockerfile
       args:
         - HUGGINGFACE_ACCESS_TOKEN=${HUGGINGFACE_ACCESS_TOKEN}
-        - SERVE_API_LOCALLY=false
     ports: 
       - "8188:8188"
       - "8000:8000"
     volumes:
-      - /Users/alexgenovese/Desktop/runpod/output:/comfyui/output
+      - /Users/alexgenovese/Desktop/comfy-local/runpod/output:/comfyui/output
+    environment:
+      - SERVE_API_LOCALLY=true
