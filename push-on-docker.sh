@@ -5,7 +5,7 @@ set -e
 
 # Variables
 IMAGE_NAME="prompt"
-TAG="0.0.5"
+TAG="0.0.8"
 DOCKER_HUB_USERNAME="alexgenovese"
 
 # Ensure the script is run with the correct number of arguments
@@ -24,7 +24,7 @@ fi
 
 # Build the Docker image
 echo "Building the Docker image: $IMAGE_NAME:$TAG"
-docker build -t "$DOCKER_HUB_USERNAME/$IMAGE_NAME:$TAG" --platform linux/amd64 .
+docker build --build-arg HUGGINGFACE_ACCESS_TOKEN="" -t "$DOCKER_HUB_USERNAME/$IMAGE_NAME:$TAG" --platform linux/amd64 .
 
 # Push the Docker image to Docker Hub
 echo "Pushing the Docker image to Docker Hub"
