@@ -111,7 +111,7 @@
   },
   "15": {
     "inputs": {
-      "noise_seed": 73886954719276
+      "noise_seed": 429236919321735
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -369,24 +369,10 @@
       "title": "Image List To Image Batch"
     }
   },
-  "64": {
-    "inputs": {
-      "ckpt_name": "depth_anything_v2_vitl.pth",
-      "resolution": 512,
-      "image": [
-        "19",
-        0
-      ]
-    },
-    "class_type": "DepthAnythingV2Preprocessor",
-    "_meta": {
-      "title": "Depth Anything V2 - Relative"
-    }
-  },
   "69": {
     "inputs": {
       "add_noise": true,
-      "noise_seed": 864391685866915,
+      "noise_seed": 312190842476407,
       "cfg": 1,
       "model": [
         "11",
@@ -442,7 +428,7 @@
   },
   "72": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "prompt",
       "images": [
         "19",
         0

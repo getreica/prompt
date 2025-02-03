@@ -12,5 +12,6 @@ services:
       - "8000:8000"
     volumes:
       - /Users/alexgenovese/Desktop/comfy-local/runpod/output:/comfyui/output
+      #- /Volumes/HD 2TB/2 - REICA/models:/comfyui/models/
     environment:
       - SERVE_API_LOCALLY=true
